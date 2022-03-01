@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+
 //导入cupertino  widget 库
 import 'package:flutter/cupertino.dart';
 
+import 'AnimatedListRoute.dart';
 import 'ClipTestRoute.dart';
 import 'ContainerCard.dart';
 import 'FlexLayoutTestRoute.dart';
+import 'InfiniteListView.dart';
+import 'ListView3.dart';
 import 'ResponsiveColumn.dart';
 import 'ScaffoldRoute.dart';
+import 'ScrollControllerTestRoute.dart';
+import 'ScrollNotificationTestRoute.dart';
+import 'SingleChildScrollViewTestRoute.dart';
 import 'WContainer.dart';
 
 void main() {
@@ -20,21 +27,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home:  const ScaffoldRoute()
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        home: Scaffold(
+            appBar: AppBar(
+              // Here we take the value from the MyHomePage object that was created by
+              // the App.build method, and use it to set our appbar title.
+              title: const Text("标题"),
+            ),
+            body: const Center(
+              child: AnimatedListRoute(),
+            )));
   }
 }
 
@@ -212,8 +226,10 @@ class _TapboxCState extends State<TapboxC> {
   Widget build(BuildContext context) {
     // 在按下时添加绿色边框，当抬起时，取消高亮
     return GestureDetector(
-      onTapDown: _handleTapDown, // 处理按下事件
-      onTapUp: _handleTapUp, // 处理抬起事件
+      onTapDown: _handleTapDown,
+      // 处理按下事件
+      onTapUp: _handleTapUp,
+      // 处理抬起事件
       onTap: _handleTap,
       onTapCancel: _handleTapCancel,
       child: Container(
@@ -229,9 +245,9 @@ class _TapboxCState extends State<TapboxC> {
           color: widget.active ? Colors.lightGreen[700] : Colors.grey[600],
           border: _highlight
               ? Border.all(
-            color: Colors.teal,
-            width: 10.0,
-          )
+                  color: Colors.teal,
+                  width: 10.0,
+                )
               : null,
         ),
       ),
@@ -240,7 +256,7 @@ class _TapboxCState extends State<TapboxC> {
 }
 
 //demo
-class CupertinoTestRoute extends StatelessWidget  {
+class CupertinoTestRoute extends StatelessWidget {
   const CupertinoTestRoute({Key? key}) : super(key: key);
 
   @override
@@ -253,8 +269,7 @@ class CupertinoTestRoute extends StatelessWidget  {
         child: CupertinoButton(
             color: CupertinoColors.activeBlue,
             child: const Text("Press"),
-            onPressed: () {}
-        ),
+            onPressed: () {}),
       ),
     );
   }
@@ -414,7 +429,10 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               verticalDirection: VerticalDirection.up,
               children: const <Widget>[
-                Text(" hello world ", style: TextStyle(fontSize: 30.0),),
+                Text(
+                  " hello world ",
+                  style: TextStyle(fontSize: 30.0),
+                ),
                 Text(" I am Jack "),
               ],
             ),
@@ -429,6 +447,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void _onPressed() {
-  }
+  void _onPressed() {}
 }
