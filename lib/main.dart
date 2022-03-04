@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'AnimatedListRoute.dart';
+import 'AnimatedWidgetsTest.dart';
 import 'BuildTwoListView.dart';
 import 'ClipTestRoute.dart';
 import 'ContainerCard.dart';
+import 'CustomPaintRoute.dart';
 import 'FlexLayoutTestRoute.dart';
 import 'InfiniteGridView.dart';
 import 'InfiniteListView.dart';
@@ -20,7 +22,9 @@ import 'ScrollNotificationTestRoute.dart';
 import 'SingleChildScrollViewTestRoute.dart';
 import 'TabViewRoute1.dart';
 import 'TabViewRoute2.dart';
+import 'ThemeTestRoute.dart';
 import 'WContainer.dart';
+import 'WillPopScopeTestRoute.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,7 +57,7 @@ class MyApp extends StatelessWidget {
               title: const Text("标题"),
             ),
             body: const Center(
-              child: NestedTabBarView1(),
+              child: CustomPaintRoute(),
             )));
   }
 }
